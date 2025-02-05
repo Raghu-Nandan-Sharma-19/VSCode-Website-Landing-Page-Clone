@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        Visual Studio code - code editor
+    </title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div>
+        <span class="navbar">
+            <div class="hamburger" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <div class="navbar-left" id="mobileMenu">
+                <img src="./assets/vscode.png" alt="vscode logo" width="30">
+                <h2>Visual Studio Code</h2>
+                
+                <a href="/">Docs</a>
+                <a href="/">Updates</a>
+                <a href="/">Blog</a>
+                <a href="/">API</a>
+                <a href="/">Extensions</a>
+                <a href="/">FAQ</a>
+                <a href="/">Github Copilot</a>
+            </div>
+            <div class="navbar-right">
+                <img src="./assets/theme-light.svg" alt="" class="theme-toggle">
+                <input type="text" placeholder="Search Docs" aria-label="Search documentation">
+                <button onclick="location.reload()" class="download-btn">Download</button>
+            </div>
+        </span>
+
+        <span class="upper-content">
+            <h1>
+                Your code editor. <br> Redefined with AI.
+            </h1>
+
+            <div class="button-group">
+                <button onclick="location.reload()">Download for Windows</button>
+                <button>Get Copilot Free</button>
+            </div>
+
+            <div class="links-group">
+                <a href="/">Web</a>,
+                <a href="/">Insiders edition</a>, or
+                <a href="/">Other Platforms</a>
+            </div>
+        </span>
+        <br>
+        <div class="video-container">
+            <video src="./assets/hero-dark-lg.webm" width="600" muted autoplay id="promo-video"></video>
+        </div>
+
+        <div class="video-controls">
+            <button onclick="toggleVideo()" id="videoControl">Play</button>
+        </div>
+
+        <div class="features-container">
+            <div>
+                <h3>Pick the model that works best for your project and team, including GPT 4o and Claude Sonnet.</h3>
+                <h4>Pick the model that works best for your project and team, including GPT 4o and Claude Sonnet.</h4>
+                <img src="./assets/choose-model-dark.webp" width="300" alt="">
+            </div>
+            <div>
+                <h3>An expert on your codebase</h3>
+                <h4>Copilot locally indexes your codebase to understand what's relevant and supplements that context
+                     to interactions with Copilot.</h4>
+                <img src="./assets/multi-file-dark.webp" width="300" alt="">
+            </div>
+            <div>
+                <h3>Personalized to your needs</h3>
+                <h4>Copilot works the way you do. Customize Copilot's prompts with details about your team's 
+                    workflows, tools, and projects.</h4>
+                <img src="./assets/instructions-dark.webp" width="300" alt="">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const video = document.getElementById('promo-video');
+        const controlButton = document.getElementById('videoControl');
+        
+        // Set initial button text to Play
+        controlButton.textContent = 'Play';
+        
+        // Listen for video playing
+        video.addEventListener('playing', function() {
+            controlButton.textContent = 'Pause';
+        });
+        
+        // Listen for video end
+        video.addEventListener('ended', function() {
+            controlButton.textContent = 'Replay';
+            video.pause();
+        });
+        
+        function toggleVideo() {
+            if (video.ended) {
+                video.currentTime = 0;
+                video.play();
+                controlButton.textContent = 'Pause';
+            } else if (video.paused) {
+                video.play();
+                controlButton.textContent = 'Pause';
+            } else {
+                video.pause();
+                controlButton.textContent = 'Play';
+            }
+        }
+
+        function toggleMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('active');
+            document.querySelector('.hamburger').classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
